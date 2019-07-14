@@ -1,0 +1,7 @@
+{
+  "name": "@stuf/chrome.extension",
+  "version": "0.1",
+  "description": "N/A",
+  "manifest_version": 2,
+  "devtools_page": "devtools.html"
+}
