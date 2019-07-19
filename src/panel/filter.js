@@ -49,5 +49,9 @@ export const response = {
   },
   type: {
     isJSON: responseMimeTypeIs(eq('application/json')),
+    isNotJSON: responseMimeTypeIs(C(eq('application/json'))),
+
+    isImage: responseMimeTypeIs(prefixed('image/')),
+    isNotImage: responseMimeTypeIs(C(prefixed('image/'))),
   },
 };

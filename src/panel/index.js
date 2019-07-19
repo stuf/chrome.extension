@@ -22,12 +22,13 @@ const filteredRequest =
         F.request.method.isGET,
         F.request.url.isHTTP,
         F.response.status.isOK,
-        F.response.type.isJSON,
+        F.response.type.isNotImage,
       ]),
     ));
 
 render(
   <App
+    state={state}
     request={filteredRequest}
     port={port}
   />,
