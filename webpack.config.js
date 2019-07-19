@@ -14,6 +14,8 @@ module.exports = {
     background: resolve(SRC, 'background', 'index.js'),
   },
 
+  devtool: 'source-map',
+
   output: {
     path: DEST,
     filename: '[name].js',
@@ -36,6 +38,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'panel.html',
+      template: resolve(SRC, 'panel', 'index.ejs'),
       chunks: ['panel'],
     }),
   ],
