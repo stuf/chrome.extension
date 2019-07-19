@@ -19,10 +19,11 @@ const filteredRequest =
     .filter(R.pipe(
       R.prop('request'),
       R.allPass([
-        F.request.isGET,
-        F.request.isHTTP,
+        F.request.method.isGET,
+        F.request.url.isHTTP,
         F.response.status.isOK,
-      ])
+        F.response.type.isJSON,
+      ]),
     ));
 
 render(

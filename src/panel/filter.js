@@ -5,6 +5,7 @@ import * as R from 'kefir.ramda';
 const eq = R.equals;
 const prefixed = R.startsWith;
 const suffixed = R.startsWith;
+const matches = R.test;
 const C = R.complement;
 
 export const pathIs = R.flip(R.pathSatisfies);
@@ -27,10 +28,17 @@ export const responseMimeTypeIs = pathIs(inResponse(['content', 'mimeType']));
 //
 
 export const request = {
-  isHTTP: requestURLIs(prefixed('http')),
-  isWebsocket: requestURLIs(prefixed('ws')),
-  isGET: requestMethodIs(eq('GET')),
-  isPOST: requestMethodIs(eq('POST')),
+  method: {
+    isGET: requestMethodIs(eq('GET')),
+    isPOST: requestMethodIs(eq('POST')),
+  },
+
+  url: {
+    isHTTP: requestURLIs(prefixed('http')),
+    isWebsocket: requestURLIs(prefixed('ws')),
+    isPrefixedWith: (prefix) => requestURLIs(prefixed(prefix)),
+    matchesWith: (regex) => requestURLIs(matches(regex)),
+  },
 };
 
 export const response = {
@@ -38,5 +46,8 @@ export const response = {
     isOK: responseStatusIs(eq(200)),
     isRedirect: responseStatusIs(eq(302)),
     isNotOK: responseStatusIs(C(eq(200))),
+  },
+  type: {
+    isJSON: responseMimeTypeIs(eq('application/json')),
   },
 };
