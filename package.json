@@ -5,7 +5,7 @@
   "author": "Stefan Rimaila <stefan@rimaila.fi>",
   "license": "MIT",
   "scripts": {
-    "develop": "webpack --watch"
+    "develop": "NODE_ENV=development webpack --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -13,13 +13,26 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.3",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "infestines": "^0.4.11",
+    "karet": "^4.1.0",
+    "karet.util": "^0.19.1",
+    "kefir": "^3.8.6",
+    "kefir.partial.lenses": "^14.17.0",
+    "kefir.ramda": "^0.26.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "optionalDependencies": {
+    "@types/chrome": "^0.0.86",
+    "@types/copy-webpack-plugin": "^5.0.0",
+    "@types/html-webpack-plugin": "^3.2.1",
+    "@types/kefir": "^3.8.2"
   }
 }
